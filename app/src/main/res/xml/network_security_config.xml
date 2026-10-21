@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Actividad 3, punto 2 "Comunicación de red segura (HTTPS)".
+
+    cleartextTrafficPermitted="false" en el config base obliga a TODO el
+    tráfico de red de la app (no solo al backend) a usar HTTPS. Si algún
+    día alguien intentara apuntar la app a una URL http:// sin cifrar
+    (por error o a propósito), el sistema operativo rechaza la conexión
+    antes de mandar un solo byte, en vez de dejar pasar credenciales o el
+    token de sesión en texto plano por la red.
+-->
+<network-security-config>
+    <base-config cleartextTrafficPermitted="false">
+        <trust-anchors>
+            <certificates src="system" />
+        </trust-anchors>
+    </base-config>
+</network-security-config>
